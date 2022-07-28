@@ -72,5 +72,7 @@ console.log(typeof num3);
 
 let name =prompt('Введите Ваше Имя');
 let surname = prompt('Введите Ваше Отчество');
-let date = prompt('Ваш возраст');
-console.log(name+surname+date)
+let date = +prompt('Ваш возраст');
+console.log(name);
+console.log(surname);
+console.log(date);
