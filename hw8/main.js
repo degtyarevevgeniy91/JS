@@ -154,7 +154,7 @@
 //         console.log(`їдемо зі швидкістю ${this.maxSpeed} на годину`);
 //     }
 //
-//     inf0() {
+//     info() {
 //         for (const carKey in this) {
 //             if (typeof this[carKey] !== 'function') {
 //                 console.log(`${carKey} -- ${this[carKey]}`);
@@ -173,7 +173,7 @@
 // let car = new Car('Audi','Germany', 2015,250, 3 );
 // console.log(car);
 // car.drive()
-// car.inf0()
+// car.info()
 // car.increaseMaxSpeed(100)
 // car.addDriver({name: 'Petya', age: 43, status: true})
 // console.log(car);
@@ -194,15 +194,15 @@ class Cinderella {
     }
 }
 
-let array1 = new Cinderella('Lena', 25, '34');
-let array2 = new Cinderella('Lena', 25, '33');
-let array3 = new Cinderella('Lena', 25, '32');
-let array4 = new Cinderella('Lena', 25, '31');
-let array5 = new Cinderella('Lena', 25, '30');
-let array6 = new Cinderella('Lena', 25, '35');
-let array8 = new Cinderella('Lena', 25, '37');
-let array7 = new Cinderella('Lena', 25, '36');
-let array9 = new Cinderella('Lena', 25, '29');
+let array1 = new Cinderella('Lena', 25, 34);
+let array2 = new Cinderella('Lena', 25, 33);
+let array3 = new Cinderella('Lena', 25, 32);
+let array4 = new Cinderella('Lena', 25, 31);
+let array5 = new Cinderella('Lena', 25, 30);
+let array6 = new Cinderella('Lena', 25, 35);
+let array8 = new Cinderella('Lena', 25, 37);
+let array7 = new Cinderella('Lena', 25, 36);
+let array9 = new Cinderella('Lena', 25, 29);
 
 let array = [array1, array2, array3, array4, array5, array6, array7, array8, array9];
 
