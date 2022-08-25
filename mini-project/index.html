@@ -8,7 +8,7 @@
     <title>mini-project</title>
 </head>
 <body>
-<a href="./user-details.html">User Details</a>
+<!--<a href="./user-details.html">User Details</a>-->
 
 <script>
 
@@ -19,8 +19,15 @@
         .then(users => users.forEach(user=>{
             let div = document.createElement('div');
             div.innerText = `${user.id} ${user.name}`;
-            let productButton = document.createElement('button');
-            productButton.innerText = 'add to list'
+            let userButton = document.createElement('button');
+            userButton.innerText = 'add to list'
+
+
+
+
+
+
+
             div.appendChild(productButton)
             document.body.appendChild(div)
 
