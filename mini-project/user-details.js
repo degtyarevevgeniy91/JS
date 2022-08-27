@@ -14,7 +14,9 @@ let createUser = (obj) => {
             htmlDivElement.innerText = `${objKey} -- ${obj[objKey]}`
             container.appendChild(htmlDivElement)
 
-        }else {createUser(obj[objKey])}
+        }else {
+            createUser(obj[objKey])
+        }
     }
 }
 createUser(user)
@@ -45,10 +47,21 @@ buttonPost.onclick = (e) => {
     fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
         .then(response => response.json())
         .then(posts => {
-            for (const post in posts) {
+            for (const post of posts) {
                 let postDiv = document.createElement('div');
                 postDiv.innerText = `${post.id}  ${post.title}`;
+                console.log(postDiv);
                 divPosts.appendChild(postDiv)
+
+                let buttonPost = document.createElement('button');
+                buttonPost.innerText = 'click';
+                postDiv.appendChild(buttonPost);
+
+                buttonPost.onclick = (e) => {
+                    e.preventDefault();
+                    localStorage.setItem(key, JSON.stringify(post))
+                    location.href = `post-details.html?=${post.id}`
+                }
 
 
 

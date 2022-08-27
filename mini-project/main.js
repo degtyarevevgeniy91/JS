@@ -10,8 +10,7 @@
 
     let key = 'user';
 
-    let user = JSON.parse(localStorage.getItem(key));
-    console.log(user);
+
 
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
@@ -22,7 +21,7 @@
     userDiv.innerText = `${user.id} ${user.name}`;
 
         let button = document.createElement('button');
-        button.classList.add('pressBtn');
+        mainDiv.appendChild(userDiv)
         button.innerText = 'click';
         userDiv.appendChild(button)
 
@@ -31,9 +30,6 @@ button.onclick = (e) => {
     localStorage.setItem(key, JSON.stringify(user));
     location.href = `./user-details.html?=${user.id}`
 }
-
-
-        mainDiv.appendChild(userDiv)
 }
 
 })
