@@ -28,3 +28,30 @@ createUser(user)
 // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
 //     6 Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html,
 //     котра має детальну інфу про поточний пост.
+
+
+
+
+
+let divPosts = document.createElement('div');
+document.body.appendChild(divPosts);
+
+let buttonPost = document.createElement('button');
+buttonPost.innerText = 'post of current user';
+divPosts.appendChild(buttonPost);
+
+buttonPost.onclick = (e) => {
+    e.preventDefault();
+    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+        .then(response => response.json())
+        .then(posts => {
+            for (const post in posts) {
+                let postDiv = document.createElement('div');
+                postDiv.innerText = `${post.id} - ${post.title}`;
+                divPosts.appendChild(postDiv)
+
+
+
+            }
+        })
+}
