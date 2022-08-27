@@ -47,7 +47,7 @@ buttonPost.onclick = (e) => {
         .then(posts => {
             for (const post in posts) {
                 let postDiv = document.createElement('div');
-                postDiv.innerText = `${post.id} - ${post.title}`;
+                postDiv.innerText = `${post.id}  ${post.title}`;
                 divPosts.appendChild(postDiv)
 
 
