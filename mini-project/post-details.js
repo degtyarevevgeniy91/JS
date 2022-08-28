@@ -1,17 +1,25 @@
-let container = document.createElement('div');
-document.body.appendChild(container);
+
 
 let key = 'user'
 
 let user = JSON.parse(localStorage.getItem(key));
 console.log(user);
 
+let commentsDiv = document.createElement('div');
+commentsDiv.classList.add('main-comments');
+document.body.appendChild(commentsDiv);
+
+let mainDiv3 = document.createElement('div');
+mainDiv3.classList.add('comment');
+
+
+
 let createPost = (obj) => {
     for (const objKey in obj) {
         if(typeof obj[objKey] !== 'object') {
-            let htmlDivElement = document.createElement('div');
-            htmlDivElement.innerText = `${objKey} -- ${obj[objKey]}`
-            container.appendChild(htmlDivElement)
+            let DivElement = document.createElement('div');
+            DivElement.innerHTML = `<h3>${objKey}: ${obj[objKey]}</h3>`
+            mainDiv3.appendChild(DivElement)
 
         }else {createPost(obj[objKey])}
     }
@@ -20,25 +28,27 @@ createPost(user)
 
 
 
-// На странице post-details.html:
-// 7 Вивести всю, без виключення, інформацію про об'єкт post на який клікнули .
-// 8 Нижчє інформаці про пост, вивести всі коментарі поточного поста (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)
 
 
+
+
+
+
+
+let buttonCom = document.createElement('button');
+buttonCom.innerText = 'comments';
+mainDiv3.appendChild(buttonCom)
 
 
 
 let divComents = document.createElement('div');
-document.body.appendChild(divComents);
-
-let buttonComent = document.createElement('button');
-buttonComent.innerText = 'comments';
-divComents.appendChild(buttonComent);
+divComents.classList.add('button-comments');
+commentsDiv.append(mainDiv3, divComents)
 
 
 
 
-buttonComent.onclick = (e) => {
+buttonCom.onclick = (e) => {
     e.preventDefault();
     fetch(`https://jsonplaceholder.typicode.com/posts/${user.id}/comments`)
         .then(response => response.json())
@@ -46,9 +56,10 @@ buttonComent.onclick = (e) => {
     function createComments (comments) {
         for (const comment in comments) {
             if(typeof comments[comment] !== 'object') {
-                let htmlDivElement = document.createElement('div');
-                htmlDivElement.innerText = `${comment} -- ${comments[comment]}`
-                container.appendChild(htmlDivElement)
+                let divElementCom = document.createElement('div');
+                divElementCom.classList.add('com')
+                divElementCom.innerHTML = `<h4>${comment} -- ${comments[comment]}</h4>`
+                divComents.appendChild(divElementCom)
 
             }else {createPost(comments[comment])
             }
@@ -58,3 +69,4 @@ buttonComent.onclick = (e) => {
     createComments(comments)
 }
 )}
+

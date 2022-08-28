@@ -17,12 +17,14 @@
     .then(users => {
     for (const user of users) {
     let userDiv = document.createElement('div');
-    userDiv.classList.add('name');
-    userDiv.innerText = `${user.id} ${user.name}`;
+    userDiv.classList.add('user');
+
+    userDiv.innerHTML = `<h3>ID - ${user.id} Name - ${user.name}</h3>`;
 
         let button = document.createElement('button');
+        button.classList.add('info')
         mainDiv.appendChild(userDiv)
-        button.innerText = 'click';
+        button.innerText = 'User Information';
         userDiv.appendChild(button)
 
 button.onclick = (e) => {
