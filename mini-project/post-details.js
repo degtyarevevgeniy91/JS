@@ -5,6 +5,9 @@ let key = 'user'
 let user = JSON.parse(localStorage.getItem(key));
 console.log(user);
 
+
+
+
 let commentsDiv = document.createElement('div');
 commentsDiv.classList.add('main-comments');
 document.body.appendChild(commentsDiv);
@@ -12,10 +15,17 @@ document.body.appendChild(commentsDiv);
 let mainDiv3 = document.createElement('div');
 mainDiv3.classList.add('comment');
 
-
 let divComents = document.createElement('div');
 divComents.classList.add('button-comments');
-commentsDiv.append(mainDiv3, divComents)
+commentsDiv.append(mainDiv3)
+
+let htmlElement = document.createElement('div');
+htmlElement.classList.add('container')
+document.body.appendChild(htmlElement)
+htmlElement.append(commentsDiv, divComents)
+
+
+
 
 
 let createPost = (obj) => {
@@ -32,34 +42,31 @@ createPost(user)
 
 
 
-
-let buttonCom = document.createElement('button');
-buttonCom.innerText = 'comments';
-mainDiv3.appendChild(buttonCom)
-
-
-
-
-buttonCom.onclick = (e) => {
-    e.preventDefault();
-    fetch(`https://jsonplaceholder.typicode.com/posts/${user.id}/comments`)
+let button = document.createElement('button');
+button.innerText = 'Comments';
+button.onclick = () => {
+    fetch('https://jsonplaceholder.typicode.com/posts/' + user.id + '/comments')
         .then(response => response.json())
-.then(comments => {
-    function createComments (comments) {
-        for (const comment in comments) {
-            if(typeof comments[comment] !== 'object') {
-                let divElementCom = document.createElement('div');
-                divElementCom.classList.add('com')
-                divElementCom.innerHTML = `<h4>${comment} -- ${comments[comment]}</h4>`
-                divComents.appendChild(divElementCom)
+        .then(comments => {
+            for (const comment of comments) {
 
-            }else {createPost(comments[comment])
+                if (user.id === comment.postId) {
+                    let divElementCom = document.createElement('div');
+                    divElementCom.classList.add('com');
+                    divElementCom.innerHTML = `
+                                        <h4>ID: ${comment.id}</h4>
+                                        <h5>Name: ${comment.name}</h5>
+                                        <h5>Email: ${comment.email}</h5>
+                                        <p>Body: ${comment.body}</p>
+                                        `;
+                    divComents.appendChild(divElementCom)
+                }
             }
-        }
-
-    }
-    createComments(comments)
+        })
 }
-)}
+mainDiv3.appendChild(button);
+
+
+
 
 

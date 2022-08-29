@@ -108,3 +108,31 @@ body {
     align-items: center;
     padding: 50px;
 }
+
+
+.button-comments {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+
+}
+
+
+.com {
+    width: 200px;
+    height: 150px;
+    border: 1px solid darkgrey;
+    background: beige;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-x:hidden;
+
+}
+
+
