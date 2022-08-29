@@ -13,6 +13,10 @@ let mainDiv3 = document.createElement('div');
 mainDiv3.classList.add('comment');
 
 
+let divComents = document.createElement('div');
+divComents.classList.add('button-comments');
+commentsDiv.append(mainDiv3, divComents)
+
 
 let createPost = (obj) => {
     for (const objKey in obj) {
@@ -29,21 +33,9 @@ createPost(user)
 
 
 
-
-
-
-
-
-
 let buttonCom = document.createElement('button');
 buttonCom.innerText = 'comments';
 mainDiv3.appendChild(buttonCom)
-
-
-
-let divComents = document.createElement('div');
-divComents.classList.add('button-comments');
-commentsDiv.append(mainDiv3, divComents)
 
 
 
