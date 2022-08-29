@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: silver;
+}
+
+.users {
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.user {
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid darkgrey;
+    background: beige;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+
+.main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.block {
+    width: 90%;
+    font-size: 16px;
+    line-height: 0.1;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid darkgrey;
+    background: beige;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.posts {
+    width: 100%;
+
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post {
+    width: 200px;
+    height: 150px;
+    border: 1px solid darkgrey;
+    background: beige;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.button {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.post >h4 {
+    height: 72px;
+}
+
+
+.main-comments {
+    border: 1px solid darkgrey;
+    background: beige;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
